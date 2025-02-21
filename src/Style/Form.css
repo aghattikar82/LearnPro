@@ -1,0 +1,153 @@
+/* Base styles */
+.form_container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form_banner {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form_banner h2 {
+    font-weight: 500;
+    /* height: 100%;
+    object-fit: cover; */
+  }
+  
+  .form_box {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px; /* limits width on larger screens */
+    /* height: 100%; */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .form_section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 15px 0;
+  }
+  .form_section_loc{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+  }
+  .phone_num_subsection {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  /* Radio button styling */
+  .MuiSvgIcon-root {
+    font-size: 20px !important;
+  }
+  
+  /* Success message container */
+  .success-message_container {
+    height: 200px;
+    width: 90%;
+    max-width: 400px;
+    background-color: #f3f4f6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    gap: 20px;
+  }
+  
+  .success-message_container p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .back_btn a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .form_section {
+      flex-direction: column;
+      padding: 0px 0px;
+    }
+ 
+  
+    .phone_num_subsection {
+      flex-direction: row;
+    }
+    
+    .form_banner {
+      height: 100px;
+    }
+  
+    .success-message_container {
+      width: 80%;
+      height: auto;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form_box {
+      padding: 15px;
+    }
+  
+    .form_banner {
+      height: 70px;
+      text-align: center;
+    }
+    form_banner h2{
+      text-align: center;
+    }
+  
+    .form_section {
+      /* gap: 20px; */
+      padding: 5px 0px;
+      /* background-color: red; */
+    }
+    .phone_num_subsection {
+        flex-direction: column;
+      }
+    .success-message_container {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
