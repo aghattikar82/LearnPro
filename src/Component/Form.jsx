@@ -8,12 +8,11 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import { useForm } from '@formspree/react';
-import courseData from "../Course.json"
 import countryData from "../Country.json"
+import courseData from "../Course.json";
+
 
 
 
@@ -25,13 +24,14 @@ export const Form = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
-  const [location, setLocation] = useState('');
+  const [country, setCountry] = useState('');
+
   const [query, setQuery] = useState('');
   const [course, setCourse] = useState('');
   const [countryCode, setCountryCode] = useState('');
   const [indOrgValue, setIndOrgValue] = useState('Individual');
 
-  const [userlocation, setUserLocation] = useState({ latitude: null, longitude: null });
+  // const [userlocation, setUserLocation] = useState({ latitude: null, longitude: null });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,19 +68,21 @@ const onFormSubmit = (e) => {
 
     if (validateForm()) {
         setIsSubmitting(true);
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(success, error);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-            setIsSubmitting(false);
-        }
+      // alert("come")
+      success()
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(success, error);
+        // } else {
+        //     alert("Geolocation is not supported by this browser.");
+        //     setIsSubmitting(false);
+        // }
     } else {
+      // alert("not come")
         setIsSubmitting(false);
     }
 };
 
-const success = async (position) => {
+const success =  () => {
     // const { latitude, longitude } = position.coords;
     // setUserLocation({ latitude, longitude });
 
@@ -92,7 +94,7 @@ const success = async (position) => {
         "Email Address": email || "N/A",
         "Phone Number": (countryCode || phone) ? `${countryCode} ${phone}` : "N/A",
         "Company Name": company || "N/A",
-        "Location": location || "N/A",
+        "Country": country || "N/A",  // Updated from Location to Country
         // "Coordinate": `Latitude: ${latitude}, Longitude: ${longitude}`,
         // "Address": address || "N/A",
         "Query": query || "No query",
@@ -106,7 +108,7 @@ const success = async (position) => {
     setEmail('');
     setPhone('');
     setCompany('');
-    setLocation('');
+    setCountry('');
     setQuery('');
     setCourse('');
     setCountryCode('');
@@ -114,15 +116,12 @@ const success = async (position) => {
     setErrors({});
 };
 
-const error = () => {
-    alert("Unable to retrieve your location.");
-    setIsSubmitting(false);
-};
+
 
 if (state.succeeded) {
     return (
         <div className="success-message_container">
-            <p>Thanks for joining!</p> 
+            <p>We've successfully received you request</p> 
             <Button
                 variant="contained"
                 endIcon={<SendIcon />}
@@ -160,9 +159,12 @@ if (state.succeeded) {
   return (
     <div className='form_container'>
       <div className="form_box">
-        <div className="form_banner">
-         <h2> Boost Your Career with Valuable Certification </h2>
-        </div>
+      <h2 style={{ textAlign: "center", color: "royalblue" }}>Advance Your Career with Professional Certification</h2>
+                
+                <p style={{ fontSize: "12px", textAlign: "center" }}>
+                    CSM | CSPO | A-CSM, A-CSPO | CSD | CAL | CSP-SM | CSP-PO <br />
+                    PMP, ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | RTE
+                </p>
         <form onSubmit={onFormSubmit}>
             <div className="form_section">
               <TextField
@@ -248,23 +250,17 @@ if (state.succeeded) {
           
 
           <div className="form_section form_section_loc">
-            {/* <Autocomplete
-              disablePortal
-              options={courseData}
-              onChange={(e, newValue) => setCourse(newValue)}
-              renderInput={(params) => <TextField {...params} label="Course Name" />}
-              sx={{ width: "100%" }}
-              size="small"
-            /> */}
-             <TextField
-              id="location"
-              label="Location"
-              variant="outlined"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              sx={{ width: "100%" }}
-              size="small"
-            />
+          
+
+          <TextField
+            id="country"
+            label="Country"
+            variant="outlined"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            sx={{ width: "100%" }}
+            size="small"
+          />
 
             <FormControl sx={{ display: "flex", justifyContent: "flex-start", width: "100%" }}>
               <FormLabel id="ind-org-label">Individual/Organizational:</FormLabel>
@@ -281,16 +277,14 @@ if (state.succeeded) {
             </FormControl>
           </div>
           <div className="form_section">
-          <TextField
-                id="course"
-                label="Course"
-                variant="outlined"
-                value={course}
-                onChange={(e) => setCourse(e.target.value)}
-                
-                sx={{ width: "100%" }}
-                size="small"
-              />
+          <Autocomplete
+              disablePortal
+              options={courseData.courseList}
+              onChange={(e, newValue) => setCourse(newValue)}
+              renderInput={(params) => <TextField {...params} label="Course Name" />}
+              sx={{ width: "100%" }}
+              size="small"
+            />
           </div>
           <div className="form_section">
             <TextField
