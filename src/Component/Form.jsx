@@ -163,7 +163,7 @@ if (state.succeeded) {
                 
                 <p style={{ fontSize: "12px", textAlign: "center" }}>
                     CSM | CSPO | A-CSM, A-CSPO | CSD | CAL | CSP-SM | CSP-PO <br />
-                    PMP, ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | RTE
+                    PMP | ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | RTE
                 </p>
         <form onSubmit={onFormSubmit}>
             <div className="form_section">
@@ -278,10 +278,16 @@ if (state.succeeded) {
           </div>
           <div className="form_section">
           <Autocomplete
+          
               disablePortal
+              
               options={courseData.courseList}
               onChange={(e, newValue) => setCourse(newValue)}
-              renderInput={(params) => <TextField {...params} label="Course Name" />}
+              renderInput={(params) => <TextField {...params} label={
+                <>
+                  Course Name<span style={{ color: "red" }}> *</span>
+                </>
+              } />}
               sx={{ width: "100%" }}
               size="small"
             />
