@@ -59,6 +59,12 @@ export const Form = () => {
         newErrors.email = 'Enter a valid Email ID';
     }
 
+    if (!country) {
+        newErrors.country = 'Country is required';
+    } else if (!/^[A-Za-z]/.test(country)) {
+        newErrors.country = 'Enter a valid Country';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
 };
@@ -162,8 +168,8 @@ if (state.succeeded) {
       <h2 style={{ textAlign: "center", color: "royalblue" }}>Advance Your Career with Professional Certification</h2>
                 
                 <p style={{ fontSize: "12px", textAlign: "center" }}>
-                    CSM | CSPO | A-CSM, A-CSPO | CSD | CAL | CSP-SM | CSP-PO <br />
-                    PMP | ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | RTE
+                    CSM | CSPO | A-CSM | A-CSPO | CSD | CAL | CSP-SM | CSP-PO <br />
+                    PMP | ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | Advanced SPC | RTE
                 </p>
         <form onSubmit={onFormSubmit}>
             <div className="form_section">
@@ -250,12 +256,17 @@ if (state.succeeded) {
           
 
           <div className="form_section form_section_loc">
-          
 
           <TextField
             id="country"
-            label="Country"
+            label={
+                  <>
+                    Country <span style={{ color: "red" }}> *</span>
+                  </>
+                }
             variant="outlined"
+            error={!!errors.country}
+            helperText={errors.country}
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             sx={{ width: "100%" }}
