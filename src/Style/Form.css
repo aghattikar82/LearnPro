@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 75vh;
   background: #90bceb;
   padding: 20px;
 }
@@ -18,6 +18,7 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 600px;
+  min-height: 75vh auto;
   transition: all 0.3s ease-in-out;
 }
 

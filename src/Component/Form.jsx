@@ -99,13 +99,13 @@ const success =  () => {
         "Last Name": lastName || "N/A",
         "Email Address": email || "N/A",
         "Phone Number": (countryCode || phone) ? `${countryCode} ${phone}` : "N/A",
-        "Company Name": company || "N/A",
+        // "Company Name": company || "N/A",
         "Country": country || "N/A",  // Updated from Location to Country
         // "Coordinate": `Latitude: ${latitude}, Longitude: ${longitude}`,
         // "Address": address || "N/A",
         "Query": query || "No query",
         "Selected Course": course || "N/A",
-        "Individual/Organizational": indOrgValue || "N/A"
+        // "Individual/Organizational": indOrgValue || "N/A"
     });
 
     console.log('Form submitted successfully');
