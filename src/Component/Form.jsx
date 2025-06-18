@@ -127,14 +127,14 @@ const success =  () => {
 if (state.succeeded) {
     return (
         <div className="success-message_container">
-            <p>We've successfully received you request</p> 
-            <Button
+            <p>🎉 We've successfully received your request!</p>
+              <Button
                 variant="contained"
                 endIcon={<SendIcon />}
                 className="back_btn"
-            >
-                <a href="">If anything else</a>
-            </Button>
+              >
+                <a href="">Need Help with Another Course?</a>
+              </Button>
         </div>
     );
 }
@@ -163,170 +163,139 @@ if (state.succeeded) {
 
 
   return (
-    <div className='form_container'>
-      <div className="form_box">
-      <h2 style={{ textAlign: "center", color: "royalblue" }}>Advance Your Career with Professional Certification</h2>
-                
-                <p style={{ fontSize: "12px", textAlign: "center" }}>
-                    CSM | CSPO | A-CSM | A-CSPO | CSD | CAL | CSP-SM | CSP-PO <br />
-                    PMP | ICP-ACC | Prince2 | Leading SAFe 6.0 | SAFe Scrum Master (SSM) | SAFe POPM | SPC | Advanced SPC | RTE
-                </p>
-        <form onSubmit={onFormSubmit}>
-            <div className="form_section">
-              <TextField
-                id="first-name"
-                label={
-                  <>
-                    First Name<span style={{ color: "red" }}> *</span>
-                  </>
-                }
-                variant="outlined"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                error={!!errors.firstName}
-                helperText={errors.firstName}
-                sx={{ width: "100%" }}
-                size="small"
-              />
-              <TextField
-                id="last-name"
-                label="Last Name"
-                variant="outlined"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                sx={{ width: "100%" }}
-                size="small"
-              />
-            </div>
-          <div className="form_section">
-             <TextField
-              id="email"
-              label={
-                <>
-                Email ID<span style={{ color: "red" }}> *</span>
-              </>
-              }
-              variant="outlined"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              error={!!errors.email}
-              helperText={errors.email}
-              sx={{ width: "100%" }}
-              size="small"
-            />
-            <TextField
-              id="company-name"
-              label="Company Name"
-              variant="outlined"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              sx={{ width: "100%" }}
-              size="small"
-            />
-           
-          </div>
-          <div className="form_section form_section_phone">
-           
-
-            <div className="phone_num_subsection">
-              <Autocomplete
-                disablePortal
-                options={countryData.map(country => `${country.code} ${country.name}`)}
-                onChange={(e, newValue) => setCountryCode(newValue)}
-                renderInput={(params) => <TextField {...params} label="Code" />}
-                sx={{ width: "300px" }}
-                size="small"
-              />
-
-
-              <TextField
-                id="phone"
-                label="Phone"
-                variant="outlined"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                error={!!errors.phone}
-                helperText={errors.phone}
-                sx={{ width: "100%" }}
-                size="small"
-              />
-            </div>
-          </div>
-
-          
-
-          <div className="form_section form_section_loc">
-
-          <TextField
-            id="country"
-            label={
-                  <>
-                    Country <span style={{ color: "red" }}> *</span>
-                  </>
-                }
-            variant="outlined"
-            error={!!errors.country}
-            helperText={errors.country}
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            sx={{ width: "100%" }}
-            size="small"
-          />
-
-            <FormControl sx={{ display: "flex", justifyContent: "flex-start", width: "100%" }}>
-              <FormLabel id="ind-org-label">Individual/Organizational:</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby="ind-org-label"
-                name="row-radio-buttons-group"
-                value={indOrgValue}
-                onChange={handleRadioChange}
-              >
-                <FormControlLabel value="Individual" control={<Radio />} label="Individual" />
-                <FormControlLabel value="Organizational" control={<Radio />} label="Organizational" />
-              </RadioGroup>
-            </FormControl>
-          </div>
-          <div className="form_section">
-          <Autocomplete
-          
-              disablePortal
-              
-              options={courseData.courseList}
-              onChange={(e, newValue) => setCourse(newValue)}
-              renderInput={(params) => <TextField {...params} label={
-                <>
-                  Course Name<span style={{ color: "red" }}> *</span>
-                </>
-              } />}
-              sx={{ width: "100%" }}
-              size="small"
-            />
-          </div>
-          <div className="form_section">
-            <TextField
-              id="query"
-              label="Type your Query"
-              multiline
-              rows={4}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              sx={{ width: "100%" }}
-            />
-          </div>
-
-          <div className="form_section">
-            <Button
-              variant="contained"
-              endIcon={<SendIcon />}
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Submit
-            </Button>
-          </div>
-        </form>
-      </div>
+<div className="form-wrapper">
+  <div className="promo-banner">
+    <div className="banner-content">
+      <h2>
+        <span>Exclusive Offer</span>
+      </h2>
+      <p align="Center">
+        Get Upto <span><b>60% Off</b> </span>on All Courses! <br />
+      </p>
     </div>
+  </div>
+
+  <form onSubmit={onFormSubmit}>
+    <div className="form-group">
+      <TextField
+        id="first-name"
+        label={
+          <>
+            Full Name<span style={{ color: "red" }}> *</span>
+          </>
+        }
+        variant="outlined"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        error={!!errors.firstName}
+        helperText={errors.firstName}
+        size="small"
+      />
+    </div>
+
+    <div className="form-group">
+      <TextField
+        id="email"
+        label={
+          <>
+            Email <span style={{ color: "red" }}> *</span>
+          </>
+        }
+        variant="outlined"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={!!errors.email}
+        helperText={errors.email}
+        size="small"
+      />
+    </div>
+
+
+    <div className="form-group-row">
+  <Autocomplete
+    disablePortal
+    options={countryData.map((country) => `${country.code} ${country.name}`)}
+    onChange={(e, newValue) => setCountryCode(newValue)}
+    renderInput={(params) => <TextField {...params} label="Code" />}
+    size="small"
+    sx={{ width: "20%" }}
+  />
+
+  <TextField
+    id="phone"
+    label="Phone"
+    variant="outlined"
+    value={phone}
+    onChange={(e) => setPhone(e.target.value)}
+    error={!!errors.phone}
+    helperText={errors.phone}
+    size="small"
+    sx={{ width: "77%" }}
+  />
+</div>
+
+
+    <div className="form-group">
+      <TextField
+        id="country"
+        label={
+          <>
+            Country <span style={{ color: "red" }}> *</span>
+          </>
+        }
+        variant="outlined"
+        error={!!errors.country}
+        helperText={errors.country}
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
+        size="small"
+      />
+    </div>
+
+    <div className="form-group">
+      <Autocomplete
+        disablePortal
+        options={courseData.courseList}
+        onChange={(e, newValue) => setCourse(newValue)}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={
+              <>
+                Course Name<span style={{ color: "red" }}> *</span>
+              </>
+            }
+          />
+        )}
+        size="small"
+      />
+    </div>
+
+    <div className="form-group">
+      <TextField
+        id="query"
+        label="Need Info? Just type your query here"
+        multiline
+        rows={4}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+    </div>
+
+    <div className="form-group submit-wrapper">
+  <p className="submit-text">Happy to assist – share your query and claim your coupon</p>
+  <Button
+    className="submit-btn"
+    variant="contained"
+    endIcon={<SendIcon />}
+    type="submit"
+    disabled={isSubmitting}
+  >
+    Get Your Special Discount
+  </Button>
+</div>
+
+  </form>
+</div>
   );
 };

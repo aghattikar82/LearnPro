@@ -1,154 +1,236 @@
+/* === Imported Styles for intl-tel-input === */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css");
 
-/* Base styles */
-.form_container {
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #90bceb;
+  padding: 20px;
+}
+
+.form-wrapper {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease-in-out;
+}
+
+.promo-banner {
+  background: linear-gradient(120deg, #edf4ff, #e1ecfa);
+  border-left: 5px solid #70aceb;
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.promo-banner .banner-content {
+  max-width: 720px;
+}
+
+.promo-banner h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+
+.promo-banner h2 span {
+  background: linear-gradient(to right, #0052cc, #3366ff);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 30px;
+}
+.promo-banner b {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0000ff;
+}
+
+.promo-banner p {
+  font-size: 14px;
+  color: #444;
+  font-weight: 800;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.intl-tel-input {
+  width: 100%;
+}
+
+.intl-tel-input input {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  padding-left: 58px !important;
+}
+
+.course-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.course-results div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.course-results div:hover {
+  background: #f0f0f0;
+}
+
+.submit-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #0056b3, #003f7f);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.4);
+}
+
+.terms {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+  color: #666;
+}
+
+.terms a {
+  color: #222;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 500px) {
+  .promo-banner h2 {
+    font-size: 16px;
   }
-  
-  .form_banner {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    /* background-color: red; */
-    justify-content: center;
-    align-items: center;
+  .promo-banner p {
+    font-size: 13px;
   }
-  
-  .form_banner h2 {
-    font-weight: 500;
-    /* height: 100%;
-    object-fit: cover; */
+}
+
+.form-group-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+
+.success-message_container {
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+  border-radius: 40px;
+  padding: 30px 20px;
+  max-width: 450px;
+  width: 100%;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.5s ease-in-out;
+}
+
+.success-message_container p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.back_btn {
+  background: linear-gradient(to right, #1976d2, #004ba0);
+  color: white;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 30px;
+  transition: background 0.6s ease;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.back_btn:hover {
+  background: linear-gradient(to right, #004ba0, #002e6b);
+}
+
+.back_btn a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Optional: Simple animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  .form_box {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 700px; /* limits width on larger screens */
-    /* height: 100%; */
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .form_section {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    padding: 15px 0;
-  }
-  .form_section_loc{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 15px 0;
-  }
-  .phone_num_subsection {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  /* Radio button styling */
-  .MuiSvgIcon-root {
-    font-size: 20px !important;
-  }
-  
-  /* Success message container */
-  .success-message_container {
-    height: 200px;
-    width: 90%;
-    max-width: 400px;
-    background-color: #f3f4f6;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    gap: 20px;
-  }
-  
-  .success-message_container p {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .back_btn a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .form_section {
-      flex-direction: column;
-      padding: 0px 0px;
-    }
- 
-  
-    .phone_num_subsection {
-      flex-direction: row;
-    }
-    
-    .form_banner {
-      height: 100px;
-    }
-  
-    .success-message_container {
-      width: 80%;
-      height: auto;
-      padding: 20px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .form_box {
-      padding: 15px;
-    }
-  
-    .form_banner {
-      height: 70px;
-      text-align: center;
-    }
-    form_banner h2{
-      text-align: center;
-    }
-  
-    .form_section {
-      /* gap: 20px; */
-      padding: 5px 0px;
-      /* background-color: red; */
-    }
-    .phone_num_subsection {
-        flex-direction: column;
-      }
-    .success-message_container {
-      width: 100%;
-      padding: 15px;
-    }
-  }
-  
+}
