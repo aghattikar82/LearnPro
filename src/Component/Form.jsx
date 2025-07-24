@@ -163,19 +163,14 @@ if (state.succeeded) {
 
 
   return (
-<div className="form-wrapper">
-  <div className="promo-banner">
-    <div className="banner-content">
-      <h2>
-        <span>Exclusive Offer</span>
-      </h2>
-      <p align="Center">
-        Get Upto <span><b>60% Off</b> </span>on All Courses! <br />
-      </p>
-    </div>
+    <div className="form-box">
+    <div className="form-container">
+  <div className="image-section">
+    <img src="images/offer.jpeg" alt="Promo" />
   </div>
-
+<div className="form-wrapper">
   <form onSubmit={onFormSubmit}>
+    <p><span style={{ color: "red" }}> *</span> Fill the Required Details </p>
     <div className="form-group">
       <TextField
         id="first-name"
@@ -291,11 +286,14 @@ if (state.succeeded) {
     type="submit"
     disabled={isSubmitting}
   >
-    Get Your Special Discount
+    Apply Now – Final Discount Inside
   </Button>
+  <p className="submit-text">✓ By providing your contact details you agreed to our <b><a href="https://www.simpliaxis.com/privacy-policy">Privacy Policy</a></b> & <b><a href="https://www.simpliaxis.com/terms-and-conditions">Terms and Conditions.</a></b> </p>
 </div>
 
   </form>
+</div>
+</div>
 </div>
   );
 };
