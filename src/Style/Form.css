@@ -263,3 +263,31 @@ input:focus, textarea:focus {
     transform: scale(1);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .image-section {
+    display: none;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 15px;
+    box-shadow: none;
+    border-radius: 12px;
+    background: #ffffff;
+  }
+
+  .form-box {
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+}
