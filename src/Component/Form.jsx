@@ -103,12 +103,10 @@ const success =  () => {
     setLastName('');
     setEmail('');
     setPhone('');
-    setCompany('');
     setCountry('');
     setQuery('');
     setCourse('');
     setCountryCode('');
-    setIndOrgValue('Individual');
     setErrors({});
 };
 
