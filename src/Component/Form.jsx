@@ -18,13 +18,10 @@ export const Form = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [company, setCompany] = useState('');
   const [country, setCountry] = useState('');
-
   const [query, setQuery] = useState('');
   const [course, setCourse] = useState('');
   const [countryCode, setCountryCode] = useState('');
-  const [indOrgValue, setIndOrgValue] = useState('Individual');
 
   // const [userlocation, setUserLocation] = useState({ latitude: null, longitude: null });
 
@@ -126,7 +123,8 @@ if (state.succeeded) {
                 endIcon={<SendIcon />}
                 className="back_btn"
               >
-                <a href="">Need Help with Another Course?</a>
+                <a href="https://www.simpliaxis.com/courses">Need Help with Another Course?</a>
+
               </Button>
         </div>
     );
