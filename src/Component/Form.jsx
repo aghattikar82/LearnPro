@@ -18,13 +18,11 @@ export const Form = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [company, setCompany] = useState('');
   const [country, setCountry] = useState('');
-
   const [query, setQuery] = useState('');
   const [course, setCourse] = useState('');
   const [countryCode, setCountryCode] = useState('');
-  const [indOrgValue, setIndOrgValue] = useState('Individual');
+
 
   // const [userlocation, setUserLocation] = useState({ latitude: null, longitude: null });
 
@@ -32,12 +30,6 @@ export const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
 
-//   User ID
-  const [state, submitToFormspree] = useForm("manqbrza"); 
-
-  const handleRadioChange = (event) => {
-    setIndOrgValue(event.target.value);
-  };
 
   // Validation logic
   const validateForm = () => {
