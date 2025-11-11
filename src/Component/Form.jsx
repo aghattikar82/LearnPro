@@ -9,7 +9,7 @@ import countryData from "../Country.json";
 import courseData from "../Course.json";
 
 export const Form = () => {
-  // State for form fields
+  // Form state
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,12 +21,13 @@ export const Form = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Formspree setup
-  const [state, submitToFormspree] = useForm("manqbrza");
+  // Formspree hook
+  const [state, handleSubmit] = useForm("manqbrza");
 
-  // Validation logic
+  // Validation
   const validateForm = () => {
     const newErrors = {};
+
     if (!firstName) {
       newErrors.firstName = "First Name is required";
     } else if (!/^[A-Za-z]/.test(firstName)) {
@@ -35,7 +36,7 @@ export const Form = () => {
 
     if (!email) {
       newErrors.email = "Email is required";
-    } else if (!/^[a-z][\w.-]*@[a-z]+\.[a-z]{2,}/.test(email)) {
+    } else if (!/^[a-z][\\w.-]*@[a-z]+\\.[a-z]{2,}/.test(email)) {
       newErrors.email = "Enter a valid Email ID";
     }
 
@@ -49,29 +50,33 @@ export const Form = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const onFormSubmit = (e) => {
+  // Submit handler
+  const onFormSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
       setIsSubmitting(true);
-      success();
+
+      await handleSubmit({
+        "First Name": firstName || "N/A",
+        "Last Name": lastName || "N/A",
+        "Email Address": email || "N/A",
+        "Phone Number":
+          countryCode || phone ? `${countryCode} ${phone}` : "N/A",
+        Country: country || "N/A",
+        Query: query || "No query",
+        "Selected Course": course || "N/A",
+      });
+
+      console.log("Form submitted successfully");
+      resetForm();
     } else {
       setIsSubmitting(false);
     }
   };
 
-  const success = () => {
-    submitToFormspree({
-      "First Name": firstName || "N/A",
-      "Last Name": lastName || "N/A",
-      "Email Address": email || "N/A",
-      "Phone Number": (countryCode || phone) ? `${countryCode} ${phone}` : "N/A",
-      Country: country || "N/A",
-      Query: query || "No query",
-      "Selected Course": course || "N/A",
-    });
-
-    console.log("Form submitted successfully");
+  // Reset form fields
+  const resetForm = () => {
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -83,12 +88,20 @@ export const Form = () => {
     setErrors({});
   };
 
+  // Success message
   if (state.succeeded) {
     return (
       <div className="success-message_container">
         <p>🎉 We've successfully received your request!</p>
-        <Button variant="contained" endIcon={<SendIcon />} className="back_btn">
-          <a href="/">Need Help with Another Course?</a>
+        <Button
+          variant="contained"
+          endIcon={<SendIcon />}
+          className="back_btn"
+          onClick={() =>
+            (window.location.href = "https://www.simpliaxis.com/courses")
+          }
+        >
+          Need Help with Another Course?
         </Button>
       </div>
     );
@@ -100,6 +113,7 @@ export const Form = () => {
         <div className="image-section">
           <img src="images/offer.jpeg" alt="Promo" />
         </div>
+
         <div className="form-wrapper">
           <form onSubmit={onFormSubmit}>
             <p>
